@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="MauiTheme.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:conv="clr-namespace:MauiTheme.Converters"
+    xmlns:local="clr-namespace:MauiTheme"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:BooleanInvertConverter x:Key="BooleanInvertConverter" />
+
+            <Style x:Key="baseLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+
+            <Style
+                x:Key="labelStyle"
+                BasedOn="{StaticResource baseLabel}"
+                TargetType="Label">
+                <Setter Property="Margin" Value="5,0,0,0" />
+            </Style>
+
+            <Style
+                x:Key="boldLabelStyle"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style
+                x:Key="mediumLabelStyle"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style
+                x:Key="gridLabelStyle"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="Margin" Value="10,10,0,0" />
+            </Style>
+
+            <Style
+                x:Key="boldGridLabelStyle"
+                BasedOn="{StaticResource gridLabelStyle}"
+                TargetType="Label">
+                <Setter Property="Margin" Value="10,10,0,0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style
+                x:Key="optionCategoryLabel"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+
+            <Style
+                x:Key="bigLabel"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="32" />
+            </Style>
+
+            <Style
+                x:Key="bigLabelSmaller"
+                BasedOn="{StaticResource labelStyle}"
+                TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="28" />
+            </Style>
+
+            <!--  BoxView  -->
+            <Style TargetType="BoxView">
+                <Setter Property="Color" Value="{AppThemeBinding Light=#313131, Dark=White}" />
+            </Style>
+
+            <!--  Checkbox  -->
+            <Style TargetType="CheckBox">
+                <Setter Property="Color" Value="{AppThemeBinding Dark=#00bfff, Light=#4169e1}" />
+            </Style>
+
+            <!--  RadioButton  -->
+            <Style TargetType="RadioButton">
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+
+            <!--  Shell & Pages  -->
+            <Style ApplyToDerivedTypes="True" TargetType="Page">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#313131}" />
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="Shell">
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light=#512BD4, Dark=#Black}" />
+            </Style>
+
+            <s:Boolean x:Key="FalseValue">False</s:Boolean>
+            <s:Boolean x:Key="TrueValue">True</s:Boolean>
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

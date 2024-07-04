@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiTheme.BaseContentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:c="clr-namespace:MauiTheme.Controls"
+    Title="BaseContentPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="{Binding IsLoading, Mode=TwoWay, Converter={StaticResource BooleanInvertConverter}}" />
+    </Shell.BackButtonBehavior>
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <Grid RowDefinitions="*">
+                <ContentPresenter Grid.Row="0" />
+
+                <c:ActivityIndicator Grid.Row="0" />
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+</ContentPage>
